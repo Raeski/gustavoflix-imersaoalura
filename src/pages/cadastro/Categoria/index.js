@@ -1,13 +1,17 @@
-import React from 'react'
+import React,{useState} from 'react'
 import PageDefault from '../../../components/PageDefault'
 import { Link } from 'react-router-dom'
 
 
 
 function CadastroCategoria(){
+  const [nomeDaCategoria, setNomeDaCategoria] = useState('Filmes');
+
+
+
   return (
     <PageDefault>
-      <h1>Cadastro de vídeo</h1>
+      <h1>Cadastro de Categoria: {nomeDaCategoria}</h1>
 
       <form>
 
@@ -15,6 +19,11 @@ function CadastroCategoria(){
           Nome da Categoria:
           <input
             type="text"
+            value={nomeDaCategoria}
+            onChange={function funcaoalo (infosDoEvento){
+              console.log(nomeDaCategoria)
+              setNomeDaCategoria(infosDoEvento.target.value)
+            }}
           />
         </label>
 
